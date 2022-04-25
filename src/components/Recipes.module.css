@@ -1,0 +1,31 @@
+.main {
+  max-width: 1680px;
+  height: auto;
+  border: 2px solid blue;
+  margin: auto;
+}
+
+.recipe_container {
+  border: 2px solid orange;
+}
+
+
+.recipe_container ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  list-style: none;
+  gap: 120px;
+  padding: 2rem;
+}
+.recipe_container ul li {
+  width: 338px;
+  height: 335px;
+  border: 2px solid black;
+  border-radius: 10px;
+
+  /* Centering Text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

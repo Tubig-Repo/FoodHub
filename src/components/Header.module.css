@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
+  width: 100%;
+  border: 2px solid red;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav {
+  border: 2px dashed green;
+  position: fixed;
+  width: 100%;
+  background-color: gray;
+  opacity: 0.5;
+  color: #fff;
+}
+.nav_container {
+  width: 1680px;
+  margin: 0 auto;
+  padding: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav .nav_container ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+.search_bar {
+  /* border: 2px dashed red; */
+  width: 50%;
+}
+#recipe_search {
+  all: unset;
+  border: 2px solid black;
+  border-radius: 20px;
+  width: 100%;
+  padding: 0.3rem;
+}
