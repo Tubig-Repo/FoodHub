@@ -9,7 +9,6 @@
   border: 2px solid orange;
 }
 
-
 .recipe_container ul {
   display: flex;
   flex-flow: row wrap;
