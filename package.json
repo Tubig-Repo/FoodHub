@@ -1,7 +1,7 @@
 {
   "name": "food-hub",
   "version": "0.1.0",
-  "private": true,git push -u origin main
+  "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
