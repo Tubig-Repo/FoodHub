@@ -10,6 +10,7 @@ class App extends React.Component{
         data: []
       }
   }
+  
 
 componentDidMount(){
   // http://localhost/database-testing/src/php/index.php
