@@ -7,17 +7,8 @@ const Recipes = ({ recipeData }) => {
     <div className={RecipeCSS.main}>
       <div className={RecipeCSS.recipe_container}>
         <ul>
-          {/* <RecipeElement recipeName="Recipe 1" />
-          <RecipeElement recipeName="Recipe 1" />
-          <RecipeElement recipeName="Recipe 1" />
-          <RecipeElement recipeName="Recipe 1" />
-          <RecipeElement recipeName="Recipe 1" />
-          <RecipeElement recipeName="Recipe 1" />
-          <RecipeElement recipeName="Recipe 1" />
-          <RecipeElement recipeName="Recipe 1" />
-          <RecipeElement recipeName="Recipe 1" /> */}
           {recipeData.map((el) => (
-            <RecipeElement recipeName={el.foodName} />
+            <RecipeElement recipeName={el.FoodName} />
           ))}
         </ul>
       </div>
@@ -26,6 +17,3 @@ const Recipes = ({ recipeData }) => {
 };
 
 export default Recipes;
-
-
-///test
