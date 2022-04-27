@@ -1,32 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "./components/Header";
 import Recipe from "./components/Recipes";
-import axios from 'axios';
+import axios from "axios";
 
-class App extends React.Component{
+class App extends React.Component {
   constructor(props) {
-    super(props)
-      this.state = {
-        data: []
-      }
-  }
-  
-
-componentDidMount(){
-  // http://localhost/database-testing/src/php/index.php
-  axios.get('https://foodhub-bscs.000webhostapp.com/index.php').then(res => 
-  {
-  this.setState({data: res.data});
-     });
+    super(props);
+    this.state = {
+      data: [],
+    };
   }
 
-  render(){
+  componentDidMount() {
+    axios
+      .get("https://foodhub-bscs.000webhostapp.com/index.php")
+      .then((res) => {
+        this.setState({ data: res.data });
+      });
+  }
+
+  render() {
     return (
-    <div className="container">
-      <Header />
-      <Recipe recipeData={this.state.data} />
-    </div>
-  );
+      <div className="container">
+        <Header />
+        <Recipe recipeData={this.state.data} />
+      </div>
+    );
   }
 }
 
@@ -52,7 +51,6 @@ componentDidMount(){
 //       location: "Ilocos",
 //     },
 //   ]);
-
 
 //   return (
 //     <div className="container">

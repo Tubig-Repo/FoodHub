@@ -1,5 +1,5 @@
 import HeaderCSS from "./Header.module.css";
-
+import { BsSearch } from "react-icons/bs";
 const Header = () => {
   return (
     <header>
@@ -16,10 +16,13 @@ const Header = () => {
       <main className={HeaderCSS.main}>
         <div className={HeaderCSS.search_bar}>
           <input
-            type="search"
+            type="text"
             id={HeaderCSS.recipe_search}
             name="recipe-search"
           />
+          <div className={HeaderCSS.search_icon}>
+            <BsSearch className={HeaderCSS.icon} />
+          </div>
         </div>
       </main>
     </header>
