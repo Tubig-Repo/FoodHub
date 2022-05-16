@@ -2,13 +2,17 @@ import React from "react";
 import Header from "./components/Header";
 import Recipe from "./components/Recipes";
 import axios from "axios";
-
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [],
+      inputValue: "",
+      filteredData: [],
     };
+
+    this.setInput = this.setInput.bind(this);
+    this.searchEvent = this.searchEvent.bind(this);
   }
 
   componentDidMount() {
@@ -19,16 +23,28 @@ class App extends React.Component {
       });
   }
 
+  setInput(input) {
+    this.setState({ inputValue: input.target.value });
+  }
+
+  searchEvent() {
+    this.setState({
+      filteredData: this.state.data.filter((el) =>
+        el.FoodName.toLowerCase().includes(this.state.inputValue)
+      ),
+    });
+  }
+
   render() {
     return (
       <div className="container">
-        <Header />
-        <Recipe recipeData={this.state.data} />
+        <Header searchEvent={this.searchEvent} setInput={this.setInput} />
+        <Recipe recipeData={this.state.data} query={this.state.filteredData} />
+        {console.log(this.state.data)}
       </div>
     );
   }
 }
-
 // function App() {
 //   const [recipeData, setRecipe] = useState([
 //     {

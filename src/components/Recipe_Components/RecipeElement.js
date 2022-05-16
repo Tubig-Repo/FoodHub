@@ -1,5 +1,5 @@
-const RecipeElement = ({ recipeName }) => {
-  return <li>{recipeName}</li>;
+const RecipeElement = ({ recipeName, id }) => {
+  return <li key={Number(id)}>{recipeName}</li>;
 };
 
 export default RecipeElement;
