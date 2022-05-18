@@ -1,6 +1,16 @@
 import HeaderCSS from "./Header.module.css";
 import { BsSearch } from "react-icons/bs";
-const Header = ({ searchEvent, setInput }) => {
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+const Header = ({ data }) => {
+  const [inputValue, setInputvalue] = useState("");
+  const navigate = useNavigate();
+  const submitHandler = function (e) {
+    e.preventDefault();
+
+    navigate("/searched/" + inputValue);
+  };
   return (
     <header>
       <div className={HeaderCSS.nav}>
@@ -8,30 +18,32 @@ const Header = ({ searchEvent, setInput }) => {
           <div className="nav-logo">LOGO</div>
           <ul className={HeaderCSS.nav_links}>
             <li>
-              <a href="">link1</a>
+              <a>link1</a>
             </li>
             <li>
-              <a href="">link2</a>
+              <a>link2</a>
             </li>
             <li>
-              <a href="">link3</a>
+              <a>link3</a>
             </li>
           </ul>
         </div>
       </div>
       <main className={HeaderCSS.main}>
         <p className={HeaderCSS.search_text}>Find A Recipe</p>
-        <div className={HeaderCSS.search_bar}>
+        <form onSubmit={submitHandler} className={HeaderCSS.search_bar}>
           <input
             type="text"
             id={HeaderCSS.recipe_search}
             name="recipe-search"
-            onChange={setInput}
+            value={inputValue}
+            onChange={(e) => setInputvalue(e.target.value)}
           />
-          <div className={HeaderCSS.search_icon} onClick={searchEvent}>
+
+          <button className={HeaderCSS.search_icon}>
             <BsSearch className={HeaderCSS.icon} />
-          </div>
-        </div>
+          </button>
+        </form>
       </main>
     </header>
   );
