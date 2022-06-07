@@ -26,7 +26,7 @@ const Recipes = () => {
   useEffect(() => {
     setLoading(true);
     getData();
-    console.log(searchedData);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.search]);
 
@@ -44,7 +44,7 @@ const Recipes = () => {
           <MoonLoader
             color={"#FF9400"}
             loading={loading}
-            size={100}
+            size={50}
             css={override}
           />
         </div>
@@ -56,6 +56,7 @@ const Recipes = () => {
                 recipeName={el.FoodName}
                 key={el.FoodID}
                 imgPath={el.imgPath}
+                recipeDesc={el.Description}
               />
             ))}
           </ul>

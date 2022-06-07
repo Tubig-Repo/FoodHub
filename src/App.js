@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./pages/Header";
 import Recipes from "./pages/Recipes";
 import Nav from "./components/Nav";
-
 function App() {
   return (
     <div className="container">
