@@ -1,10 +1,8 @@
 .nav {
   font-family: "Poppins", sans-serif;
-  position: fixed;
+  position: absolute;
   width: 100%;
-  /* background-color: rgba(43, 42, 42, 0.103); */
   font-weight: bold;
-  /* background-color: rgba(168, 122, 122, 0.267); */
 }
 
 .nav_logoContainer {
@@ -31,13 +29,15 @@
 }
 
 .nav_container {
-  width: 1680px;
+  width: 100%;
   margin: 0 auto;
   padding: 1rem;
-  color: #cacaca;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .nav .nav_container ul {
@@ -45,4 +45,9 @@
   display: flex;
   justify-content: space-between;
   width: 30%;
+  font-weight: 500;
+}
+/* Recipe Search Styles */
+.nav_linkRecipe {
+  color: rgb(0, 0, 0);
 }

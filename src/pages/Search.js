@@ -8,16 +8,15 @@ const Search = () => {
   const location = useLocation();
   const submitHandler = function (e) {
     e.preventDefault();
-
     navigate("/searched/" + inputValue);
   };
   return (
     <div className={SearchCSS.filter_container}>
       <p
-        className={SearchCSS.search_text}
-        style={{
-          color: `${location.pathname.includes("/searched/") && "black"}`,
-        }}
+        className={`${SearchCSS.search_text} ${
+          location.pathname.includes("/searched/") &&
+          SearchCSS.search_textRecipe
+        }`}
       >
         Find A Recipe
       </p>

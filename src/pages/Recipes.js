@@ -19,6 +19,7 @@ const Recipes = () => {
             el.FoodName.toLowerCase().includes(params.search)
           )
         );
+        console.log(res.data);
         setLoading(false);
       });
   }
@@ -26,7 +27,6 @@ const Recipes = () => {
   useEffect(() => {
     setLoading(true);
     getData();
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.search]);
 

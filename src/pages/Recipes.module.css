@@ -17,14 +17,7 @@ body {
 
 .recipe_list {
   padding: 1.5rem;
-  /* list-style: none;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 20px; */
   display: grid;
-  justify-content: center;
-  align-items: center;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 4rem;
   padding: 4rem;
