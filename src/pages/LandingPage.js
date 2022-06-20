@@ -2,6 +2,7 @@ import LandingPageCSS from "./Header.module.css";
 import Search from "./Search";
 import Main from "./Main";
 import Footer from "./Footer";
+
 const LandingPage = () => {
   return (
     <div>
@@ -11,6 +12,7 @@ const LandingPage = () => {
         </div>
       </header>
       <Main />
+      <Footer />
     </div>
   );
 };

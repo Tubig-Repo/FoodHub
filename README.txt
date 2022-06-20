@@ -1,9 +1,17 @@
 6/9/2022
 Things to Add  
 1. Save Feature 
-2. View Recipe Feature
-3.  
+2. View Recipe Feature -  DONE 
+3. Latest  Collection -> Suggested Recipes  - DONE -> Randomize 
+4. Category Feature
+5. Nav Links .
+6. Recipe Page  Design 
 
+
+
+Database
+1. Category 
+2. Spelling Properties
 
 
 
@@ -22,3 +30,6 @@ Things to Add
 2. Slider
 3. Parallax 
 4. Save Function 
+
+
+

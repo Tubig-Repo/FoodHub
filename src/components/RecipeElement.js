@@ -1,9 +1,11 @@
 import { React, useState } from "react";
 import currentRecipe from "./RecipeElement.module.css";
 import { BsHeart, BsHeartFill } from "react-icons/bs";
-
+import { useNavigate, Link } from "react-router-dom";
 const RecipeElement = ({ recipeName, id, imgPath, recipeDesc, boxShadow }) => {
   const [btnState, setbtnState] = useState(false);
+  const navigate = useNavigate();
+  // let url = useRouteMatch();
   const textTrunc = function (text, num) {
     // If the length of str is less than or equal to num
     // just return str--don't truncate it.
@@ -45,10 +47,15 @@ const RecipeElement = ({ recipeName, id, imgPath, recipeDesc, boxShadow }) => {
             />
           </div>
         </div>
-        <div className={currentRecipe.recipe_name}>{recipeName}</div>
-        <p className={currentRecipe.recipe__description}>
-          {textTrunc(recipeDesc, 125)}
-        </p>
+        {/* <Link to={"/recipe/" + recipeName} /> */}
+        <div className={currentRecipe.text_container}>
+          <Link to={"/recipe/" + id} style={{ textDecoration: "none" }}>
+            <div className={currentRecipe.recipe_name}>{recipeName}</div>
+            <p className={currentRecipe.recipe__description}>
+              {textTrunc(recipeDesc, 125)}
+            </p>
+          </Link>
+        </div>
       </div>
     </li>
   );

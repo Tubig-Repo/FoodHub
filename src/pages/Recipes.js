@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import RecipeCSS from "./Recipes.module.css";
 import RecipeElement from "../components/RecipeElement";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import Search from "./Search";
 import MoonLoader from "react-spinners/ClipLoader";
+
 const Recipes = () => {
   let params = useParams();
   const [searchedData, setSearchedData] = useState([]);
@@ -19,7 +20,7 @@ const Recipes = () => {
             el.FoodName.toLowerCase().includes(params.search)
           )
         );
-        console.log(res.data);
+
         setLoading(false);
       });
   }
@@ -52,12 +53,14 @@ const Recipes = () => {
         <div className={RecipeCSS.recipe_container}>
           <ul className={RecipeCSS.recipe_list}>
             {searchedData.map((el) => (
-              <RecipeElement
-                recipeName={el.FoodName}
-                key={el.FoodID}
-                imgPath={el.imgPath}
-                recipeDesc={el.Description}
-              />
+          
+                <RecipeElement
+                  recipeName={el.FoodName}
+                  id={el.FoodID}
+                  imgPath={el.imgPath}
+                  recipeDesc={el.Description}
+                />
+              // </Link>
             ))}
           </ul>
         </div>

@@ -20,7 +20,8 @@ const Nav = () => {
 
         <ul
           className={
-            location.pathname.includes("/searched/")
+            location.pathname.includes("/searched/") ||
+            location.pathname.includes("/recipe/")
               ? NavCSS.nav_linkRecipe
               : undefined
           }

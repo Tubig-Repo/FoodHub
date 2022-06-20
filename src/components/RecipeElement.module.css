@@ -12,6 +12,11 @@
   padding: 20px;
 }
 
+.element_container:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .recipe_name {
   font-weight: 400;
   margin: 0 auto;
@@ -39,10 +44,15 @@
   height: 100%;
 }
 
+/* Recipe Description */
 .recipe__description {
   font-size: 14px;
   text-align: center;
   color: #9f9ea1;
+}
+
+.text_container {
+  text-align: center;
 }
 
 /* Icon Styling */
