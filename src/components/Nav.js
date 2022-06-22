@@ -1,7 +1,7 @@
 import React from "react";
 import NavCSS from "./Nav.module.css";
 import Logo from "../img/Logo.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 const Nav = () => {
   const location = useLocation();
@@ -26,11 +26,21 @@ const Nav = () => {
               : undefined
           }
         >
-          <li>Home</li>
-          <li>All Recipes</li>
-          <li>Breakfast</li>
-          <li>Lunch</li>
-          <li>Dinner</li>
+          <NavLink to="/">
+            <li>Home</li>
+          </NavLink>
+          <NavLink to="/allrecipe">
+            <li>All Recipes</li>
+          </NavLink>
+          <NavLink to="/breakfast">
+            <li>Breakfast</li>
+          </NavLink>
+          <NavLink to="/lunch">
+            <li>Lunch</li>
+          </NavLink>
+          <NavLink to="/dinner">
+            <li>Dinner</li>
+          </NavLink>
         </ul>
       </div>
     </div>

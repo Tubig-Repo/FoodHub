@@ -1,13 +1,16 @@
 6/9/2022
-Things to Add  
+Main Task
 1. Save Feature 
 2. View Recipe Feature -  DONE 
-3. Latest  Collection -> Suggested Recipes  - DONE -> Randomize 
+3. Latest  Collection -> Suggested Recipes  - DONE -> Randomize  -> DONE 
 4. Category Feature
 5. Nav Links .
 6. Recipe Page  Design 
 
-
+Sub Task
+1. Footer Link Routes
+2. Sign Up Function when Clicked
+3. 
 
 Database
 1. Category 
