@@ -1,28 +1,44 @@
 import { React, useEffect, useState } from "react";
 import MainCSS from "./Main.module.css";
-import axios from "axios";
 import RecipeElement from "../components/RecipeElement";
 import RecipeCategory from "../components/RecipeCategory";
-import { Link } from "react-router-dom";
-const Main = () => {
-  const [searchedData, setSearchedData] = useState([]);
-  async function getData() {
-    axios
-      .get("https://foodhub-bscs.000webhostapp.com/index.php")
-      .then((res) => {
-        const latestRecipe = res.data.length - 4;
-        setSearchedData(
-          res.data.filter(
-            (el) => el.FoodID >= latestRecipe && el.FoodID < res.data.length
-          )
-        );
-      });
-  }
-  useEffect(() => {
-    getData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  const suggestedRecipes = [];
+import MoonLoader from "react-spinners/ClipLoader";
+const Main = ({data , loading , error}) => {
+  const [latest  , setLatest] = useState([]);
+  const [suggested , setSuggested] = useState([]);
+  useEffect(()=>{
+     if(data){
+       const newData = [];
+        setLatest(data.filter(
+          (el) => el.FoodID >= (data.length - 4 ) && el.FoodID < data.length
+        ))
+
+        for(let i = 0 ; i < 4 ; i++ ){
+          newData.push(data[Math.trunc(Math.random()*data.length) + 1]);
+          setSuggested(newData);
+        }
+      
+     }
+
+
+  },[data]);
+
+  const override = {
+    display: "block",
+    margin: "0 auto",
+  };
+
+  if(loading) {
+    return (
+    <div style={{marginTop: '13rem'}}>
+    <MoonLoader
+      color={"#FF9400"}
+      loading={loading}
+      size={50}
+      css={override}
+    />
+  </div>);
+  } 
   const categoryMockData = [
     {
       categoryName: "Pork Adobo",
@@ -63,7 +79,7 @@ const Main = () => {
             Latest <span className={MainCSS.brand_heading}>Recipe</span>
           </h1>
           <ul className={MainCSS.latestRecipe_list}>
-            {searchedData.map((el) => (
+            { latest.map((el) => (
               <RecipeElement
                 recipeName={el.FoodName}
                 id={el.FoodID}
@@ -81,7 +97,7 @@ const Main = () => {
             Suggested <span className={MainCSS.brand_heading}>Recipe</span>
           </h1>
           <ul className={MainCSS.latestCollection_list}>
-            {searchedData.map((el) => (
+            { suggested.map((el) => (
               <RecipeElement
                 recipeName={el.FoodName}
                 id={el.FoodID}
@@ -91,7 +107,7 @@ const Main = () => {
                   boxShadow: "-2px 2px 10px 0px rgba(255, 255, 255, 0.3)",
                 }}
               />
-            ))}
+            ))} 
           </ul>
         </div>
       </section>

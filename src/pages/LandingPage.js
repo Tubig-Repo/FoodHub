@@ -1,9 +1,11 @@
+
 import LandingPageCSS from "./Header.module.css";
 import Search from "./Search";
 import Main from "./Main";
 import Footer from "./Footer";
 
-const LandingPage = () => {
+const LandingPage = ({data , loading , error}) => {
+
   return (
     <div>
       <header>
@@ -11,7 +13,7 @@ const LandingPage = () => {
           <Search />
         </div>
       </header>
-      <Main />
+      <Main data={data}/>
       <Footer />
     </div>
   );
