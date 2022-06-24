@@ -1,10 +1,13 @@
-import React from "react";
+import { React, useEffect } from "react";
 import NavCSS from "./Nav.module.css";
 import Logo from "../img/Logo.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+
 const Nav = () => {
   const location = useLocation();
+
+  useEffect(() => {}, [location.pathname]);
   return (
     <div
       className={`${NavCSS.nav} ${
@@ -21,16 +24,32 @@ const Nav = () => {
         <ul
           className={
             location.pathname.includes("/searched/") ||
-            location.pathname.includes("/recipe/")
+            location.pathname.includes("/recipe/") ||
+            location.pathname.includes("/navigate/") ||
+            location.pathname.includes("/category/")
               ? NavCSS.nav_linkRecipe
-              : undefined
+              : NavCSS.nav_links
           }
         >
-          <li>Home</li>
-          <li>All Recipes</li>
-          <li>Breakfast</li>
-          <li>Lunch</li>
-          <li>Dinner</li>
+          <li>
+            <NavLink to="/">Home </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/navigate/allrecipes">All Recipes </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/navigate/breakfast">Breakfast </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/navigate/lunch">Lunch </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/navigate/dinner">Dinner </NavLink>
+          </li>
         </ul>
       </div>
     </div>

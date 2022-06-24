@@ -1,29 +1,17 @@
 import RecipePageCSS from "./RecipePage.module.css";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import MoonLoader from "react-spinners/ClipLoader";
-const RecipePage = () => {
-  const [searchedData, setSearchedData] = useState();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState();
+const RecipePage = ({ data, loading, error }) => {
+  const [recipeData, setRecipeData] = useState();
   let params = useParams();
   useEffect(() => {
-    setLoading(true);
-    getData();
-  }, [params.recipeID]);
-
-  async function getData() {
-    axios
-      .get("https://foodhub-bscs.000webhostapp.com/index.php")
-      .then((res) => {
-        setSearchedData(
-          res.data.filter((el) => Number(el.FoodID) === Number(params.recipeID))
-        );
-        setLoading(false);
-      })
-      .catch((error) => setError(error));
-  }
+    if (data && params.recipeID) {
+      setRecipeData(
+        data.filter((el) => Number(el.FoodID) === Number(params.recipeID))
+      );
+    }
+  }, [data, params.recipeID]);
 
   const override = {
     display: "block",
@@ -33,7 +21,9 @@ const RecipePage = () => {
   const splitString = function (ing) {
     return ing.split("+");
   };
-  if (searchedData === undefined) {
+
+  if (data === null || recipeData === undefined) {
+    console.log(true);
     return (
       <div className={RecipePageCSS.loader_container}>
         <MoonLoader
@@ -54,38 +44,38 @@ const RecipePage = () => {
         <div className={RecipePageCSS.recipeImage_container}>
           <img
             className={RecipePageCSS.recipeImg}
-            src={searchedData[0].imgPath}
-            alt={"something shit"}
+            src={recipeData[0].imgPath}
+            alt={recipeData[0].FoodName}
           ></img>
         </div>
         {/* Recipe Description */}
         <div className={RecipePageCSS.recipe_desc1}>
-          <h2>{searchedData[0].FoodName}</h2>
-          <p>{searchedData[0].Description}</p>
+          <h2>{recipeData[0].FoodName}</h2>
+          <p>{recipeData[0].Description}</p>
           <div className={RecipePageCSS.recipe_desc2}>
             <ul>
               <li>
                 Prep Time <br />
                 <span className={RecipePageCSS.desc2}>
-                  {searchedData[0].PrepTime}
+                  {recipeData[0].PrepTime}
                 </span>
               </li>
               <li>
                 Servings <br />
                 <span className={RecipePageCSS.desc2}>
-                  {searchedData[0].Serving}
+                  {recipeData[0].Serving}
                 </span>
               </li>
               <li>
                 Cooking Time <br />
                 <span className={RecipePageCSS.desc2}>
-                  {searchedData[0].CookingTime}
+                  {recipeData[0].CookingTime}
                 </span>
               </li>
               <li>
                 Category <br />
                 <span className={RecipePageCSS.desc2}>
-                  {searchedData[0].category}
+                  {recipeData[0].category}
                 </span>
               </li>
             </ul>
@@ -98,7 +88,7 @@ const RecipePage = () => {
         <div className={RecipePageCSS.ingredients}>
           <h3 className={RecipePageCSS.page_heading}>Ingredients</h3>
           <ul className={RecipePageCSS.ingredient_list}>
-            {splitString(searchedData[0].Ingredients).map((el, index) => {
+            {splitString(recipeData[0].Ingredients).map((el, index) => {
               return (
                 <li className={RecipePageCSS.direction_el} key={index}>
                   {el}
@@ -111,7 +101,7 @@ const RecipePage = () => {
         <div className={RecipePageCSS.Instruction}>
           <h3 className={RecipePageCSS.page_heading}>Instructions</h3>
           <ul className={RecipePageCSS.instruction_list}>
-            {splitString(searchedData[0].Instruction).map((el, index) => {
+            {splitString(recipeData[0].Instruction).map((el, index) => {
               return (
                 <li className={RecipePageCSS.direction_el} key={index}>
                   {el}

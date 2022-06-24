@@ -65,7 +65,7 @@ main {
 }
 /* Recipe Search Styling  */
 .search_textRecipe {
-  color: black;
+  color: black !important;
 }
 /* .search_icon:hover {
     color: #cacaca;
@@ -73,4 +73,10 @@ main {
 .icon {
   width: 100%;
   height: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .search_bar {
+    width: 80%;
+  }
 }

@@ -10,13 +10,18 @@ const Search = () => {
     e.preventDefault();
     navigate("/searched/" + inputValue);
   };
+
   return (
     <div className={SearchCSS.filter_container}>
       <p
-        className={`${SearchCSS.search_text} ${
-          location.pathname.includes("/searched/") &&
-          SearchCSS.search_textRecipe
-        }`}
+        className={`${SearchCSS.search_text}`}
+        style={
+          location.pathname.includes("/searched/") ||
+          location.pathname.includes("/navigate/") ||
+          location.pathname.includes("/category/")
+            ? { color: "black" }
+            : { color: "#cacaca" }
+        }
       >
         Find A Recipe
       </p>

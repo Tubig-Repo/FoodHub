@@ -49,7 +49,8 @@ h1 {
 }
 .category_list {
   display: grid;
-  grid-template-columns: repeat(3, 400px);
+  /* grid-template-columns: repeat(3, 1fr); */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 400px));
   gap: 2rem;
   justify-items: center;
   justify-content: space-between;

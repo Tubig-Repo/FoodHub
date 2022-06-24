@@ -105,6 +105,11 @@ footer {
 
 .aboutUS a {
   color: #fff;
+  text-decoration: none;
+}
+
+.aboutUS :hover {
+  text-decoration: underline;
 }
 .socials {
   width: 15%;

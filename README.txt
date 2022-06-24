@@ -3,9 +3,10 @@ Things to Add
 1. Save Feature 
 2. View Recipe Feature -  DONE 
 3. Latest  Collection -> Suggested Recipes  - DONE -> Randomize 
-4. Category Feature
-5. Nav Links .
-6. Recipe Page  Design 
+4. Category Feature -> Databse Not Yet Done
+5. Nav Links . -> Link ->Databse Not yet DOne 
+6. Recipe Page  Design -> Done 
+7.Responsive Design
 
 
 

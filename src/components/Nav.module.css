@@ -18,11 +18,11 @@
 }
 
 .nav_links li a {
-  text-decoration: inherit;
+  text-decoration: none;
   color: #ffffff;
 }
 
-.nav_links li a:hover {
+.nav_links li:hover {
   color: rgb(255, 255, 255);
 }
 .nav_links li :hover {
@@ -48,7 +48,24 @@
   width: 30%;
   font-weight: 500;
 }
-/* Recipe Search Styles */
+/* Recipe Search Styles and Nav styles */
 .nav_linkRecipe {
   color: rgb(0, 0, 0);
 }
+
+.nav_linkRecipe li a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.nav_linkRecipe li:hover {
+  border-bottom: 2px solid rgb(0, 0, 0, 0.397);
+}
+
+/* Mobile Responsive Navigation  */
+
+/* @media only screen and (max-width: 768px) {
+  .nav_links {
+    display: none !important;
+  }
+} */

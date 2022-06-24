@@ -18,6 +18,10 @@
   border: 1px solid rgb(49, 49, 49);
 }
 
+.recipe_heading > * {
+  flex: 1;
+}
+
 .loader_container {
   margin-top: 13rem;
 }

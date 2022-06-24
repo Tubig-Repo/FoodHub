@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import RecipecategoryCSS from "./RecipeCategory.module.css";
 
-const RecipeCategory = ({ categoryName, imgPath }) => {
+const RecipeCategory = ({ id, categoryName, img }) => {
   return (
-    <li className={RecipecategoryCSS.categoryElement_container}>
+    <li key={id} className={RecipecategoryCSS.categoryElement_container}>
       <div
         className={RecipecategoryCSS.category_img}
-        // style={{ background: `url(${imgPath})` }}
+        key={id}
+        style={{ background: `url(${img})` }}
       ></div>
-      <p>{categoryName}</p>
+      <Link
+        to={`/category/${categoryName}`}
+        className={RecipecategoryCSS.link_style}
+      >
+        {categoryName}
+      </Link>
     </li>
   );
 };
