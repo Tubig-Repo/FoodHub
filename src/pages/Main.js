@@ -7,6 +7,7 @@ const Main = ({ data, loading, error }) => {
   const [latest, setLatest] = useState([]);
   const [suggested, setSuggested] = useState([]);
   const [category, setCategory] = useState([]);
+
   useEffect(() => {
     if (data) {
       const newData = [];
@@ -69,38 +70,6 @@ const Main = ({ data, loading, error }) => {
       </div>
     );
   }
-  const categoryMockData = [
-    {
-      categoryName: "Pork Adobo",
-      imgPath: "../img/mock_img.jpg",
-      id: 0,
-    },
-    {
-      categoryName: "Pork Adobo",
-      imgPath: "../img/mock_img.jpg",
-      id: 1,
-    },
-    {
-      categoryName: "Pork Adobo",
-      imgPath: "../img/mock_img.jpg",
-      id: 2,
-    },
-    {
-      categoryName: "Pork Adobo",
-      imgPath: "../img/mock_img.jpg",
-      id: 3,
-    },
-    {
-      categoryName: "Pork Adobo",
-      imgPath: "../img/mock_img.jpg",
-      id: 4,
-    },
-    {
-      categoryName: "Pork Adobo",
-      imgPath: "../img/mock_img.jpg",
-      id: 5,
-    },
-  ];
   return (
     <div className={MainCSS.main_wrapper}>
       <section className={MainCSS.latestRecipe_section}>
@@ -151,7 +120,6 @@ const Main = ({ data, loading, error }) => {
             Explore by <span className={MainCSS.brand_heading}>Category</span>
           </h1>
           <div className={MainCSS.align_container}>
-            <h3 className={MainCSS.h3_heading}>Browse All &gt;&gt;</h3>
             <ul className={MainCSS.category_list}>
               {category &&
                 category.map((el, i) => (
@@ -159,7 +127,6 @@ const Main = ({ data, loading, error }) => {
                     id={i}
                     categoryName={el.categoryName}
                     img={el.categoryImage}
-                    key={i}
                   />
                 ))}
             </ul>

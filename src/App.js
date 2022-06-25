@@ -17,6 +17,10 @@ function App() {
     axios
       .get(url)
       .then((res) => {
+        res.data.forEach((el) => {
+          el["meal"] = el["meal"].split(",");
+        });
+
         setData(res.data);
       })
       .catch((err) => {
@@ -50,9 +54,18 @@ function App() {
             path="/navigate/allrecipes"
             element={<Recipes data={data} loading={loading} error={error} />}
           />
-          {/* <Route path ="/navigate/breakfast" element={} />
-          <Route path ="/navigate/lunch" element={} />
-          <Route path ="/navigate/dinner" element={} /> */}
+          <Route
+            path="/navigate/breakfast"
+            element={<Recipes data={data} loading={loading} error={error} />}
+          />
+          <Route
+            path="/navigate/lunch"
+            element={<Recipes data={data} loading={loading} error={error} />}
+          />
+          <Route
+            path="/navigate/dinner"
+            element={<Recipes data={data} loading={loading} error={error} />}
+          />
           <Route
             path="/category/:categoryName"
             element={<Recipes data={data} loading={loading} error={error} />}

@@ -55,3 +55,19 @@ h1 {
   justify-items: center;
   justify-content: space-between;
 }
+
+/* Mobile Design */
+
+@media only screen and (max-width: 768px) {
+  /* Global Styling  */
+  h1 {
+    text-align: center;
+  }
+  /* Collection And Recipe */
+  .latestRecipe_list,
+  .latestCollection_list {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+}
